@@ -67,6 +67,20 @@ export class AppRoot {
 </Host>
 ```
 
+#### 404
+
+To handle 404s, place this route just before the closing `Router.Switch` tag:
+
+```tsx
+<Host>
+  <Router.Switch>
+    <Route path="/not-found">
+      404 not found
+    </Route>
+    <Route path={/^((?!\/not-found))/} to="/not-found"/>
+  </Router.Switch>
+</Host>
+```
 ### Params
 
 Route can take an optional `render` property that will pass down the params. This method should be used instead of JSX children.
